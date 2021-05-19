@@ -189,6 +189,9 @@ const IndexPage = ({ data }) => {
             </li>
           </ul>
         </div>
+        <div className="back">
+          <GatsbyImage image={data.pattern.childImageSharp.gatsbyImageData} alt="" style={{ height: "100%" }} />
+        </div>
       </footer>
     </main>
   )
@@ -221,6 +224,11 @@ export const query = graphql`
     berry: file(relativePath: {eq: "berry.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    pattern: file(relativePath: {eq: "pattern.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 90)
       }
     }
   }
